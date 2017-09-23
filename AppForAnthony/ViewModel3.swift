@@ -42,12 +42,20 @@ class ViewModel3 {
     }
     
     func getPokemonImage(indexIn:Int) {
-        NetWorking.getImage(url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexIn + 1).png") {
-            [unowned self] (error, data) in
-            guard error == nil else {return}
-            guard let dataIn = data else {return}
-            self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: dataIn)
+        let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexIn + 1).png"
+        
+        if let image = ImageCache.shared.cache.object(forKey: url as NSString){
+            self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: image)
+            
+        } else {
+            NetWorking.getImage(url:url) {
+                [unowned self] (error, data) in
+                guard error == nil else {return}
+                guard let dataIn = data else {return}
+                self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: dataIn)
+            }
         }
+        
     }
     
     func getCounter() -> Int {

@@ -25,10 +25,27 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        setBackgroundImage()
         myImageView.image = #imageLiteral(resourceName: "Picture1")
         guard let url = passedUrl else {return}
         guard let indexIn = passedIndex else {return}
         self.ThirdViewModel.getPokemonFeatures(inputUrl: url, index: indexIn)
+    }
+    
+    func setBackgroundImage(){
+        let background = UIImage(named: "pokeBack")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
 

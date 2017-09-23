@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 protocol VMDelegate1:class{
-    func getPokemonNames(array: [Pokemon])
+    func getPokemonNames(string: String)
 }
 
 class ViewModel1 {
@@ -21,6 +21,10 @@ class ViewModel1 {
     
     init(delegate:VMDelegate1? = nil){
         self.ViewController1 = delegate
+    }
+    
+    func triggerDisplayInfo () {
+        ViewController1?.getPokemonNames(string: "Display Info")
     }
 }
 

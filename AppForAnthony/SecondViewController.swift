@@ -18,11 +18,24 @@ class SecondViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundImage()
         guard let index = passedIndex else {return}
         secondViewModel.getPokemons(inputValue: index)
         let bundle = Bundle(for: CustomTableViewCell.self)
         let nib = UINib(nibName: "CustomeViewCell", bundle: bundle)
         self.tableView.register(nib, forCellReuseIdentifier: "CustomCell")
+    }
+    
+    func setBackgroundImage(){
+        let background = UIImage(named: "pokeBack")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
     }
     
     // Load the table every single time you get to this tab

@@ -15,13 +15,12 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myTextField: UITextField!
     
+    lazy var firstViewModel:ViewModel1 = ViewModel1(delegate: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        myTextField.delegate = self
-        myLabel.layer.cornerRadius = 10.0
-        myLabel.clipsToBounds = true
-        myButton.layer.cornerRadius = 15
-        myTextField.layer.cornerRadius = 15
+        setBackgroundImage()
+        firstViewModel.triggerDisplayInfo()
     }
     
     @IBAction func inputButton(sender: UIButton){
@@ -32,9 +31,35 @@ class FirstViewController: UIViewController {
         navigationController?.pushViewController(myVC, animated: true)
         print("@IBAction")
     }
+    
+    func setBackgroundImage(){
+        let background = UIImage(named: "pokeBack")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension FirstViewController:VMDelegate1 {
+    func getPokemonNames(string: String) {
+        DispatchQueue.main.async {
+            self.myTextField.delegate = self
+            self.myLabel.layer.cornerRadius = 10.0
+            self.myLabel.clipsToBounds = true
+            self.myButton.layer.cornerRadius = 15
+            self.myButton.clipsToBounds = true
+            self.myTextField.layer.cornerRadius = 15
+            self.myTextField.clipsToBounds = true
+        }
     }
 }
 
