@@ -14,6 +14,8 @@ class SecondViewController: UITableViewController {
     var urlToPass:String?
     var indexToPass:Int?
     
+    var currentImage:UIImage?
+    
     lazy var secondViewModel:ViewModel2 = ViewModel2(delegate: self)
     
     override func viewDidLoad() {
@@ -49,9 +51,11 @@ class SecondViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
-        let image = #imageLiteral(resourceName: "Picture1")
-        let nameLabel = secondViewModel.getName(index: indexPath.row)
-        cell.fillCell(with: nameLabel, image: image)
+        let name = secondViewModel.getName(index: indexPath.row)
+        DispatchQueue.main.async {
+            let image = self.secondViewModel.getImage(urlIndex: indexPath.row)
+            cell.fillCell(with: name, image: image)
+        }
         return cell
     }
     
@@ -77,8 +81,9 @@ class SecondViewController: UITableViewController {
 }
 
 extension SecondViewController:VMDelegate2{
-    func updateTable(){
+    func updateTable(image: UIImage){
         DispatchQueue.main.async {
+            self.currentImage = image
             self.tableView.reloadData()
         }
     }

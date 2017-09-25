@@ -26,6 +26,7 @@ class FirstViewController: UIViewController {
     @IBAction func inputButton(sender: UIButton){
         guard let text = myTextField.text else {return}
         guard let userInput = Int(text) else {return}
+        firstViewModel.getImage(pokeNumber: userInput)
         let myVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
         myVC.passedIndex = userInput
         navigationController?.pushViewController(myVC, animated: true)

@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 protocol VMDelegate2:class{
-    func updateTable()
+    func updateTable(image: UIImage)
 }
 
 class ViewModel2 {
@@ -21,6 +21,10 @@ class ViewModel2 {
     
     init(delegate:VMDelegate2? = nil){
         self.ViewController2 = delegate
+    }
+    
+    func getMasterArray(array: [Pokemon]) {
+        masterArray = array.flatMap{$0}
     }
     
     func getPokemons(inputValue: Int) {
@@ -34,13 +38,20 @@ class ViewModel2 {
                 guard let results = dict["results"] as? [[String:Any]] else {return}
                 let pokeArray:[Pokemon] = results.flatMap{ try? Pokemon(dict: $0)}
                 self.masterArray = pokeArray
-                self.ViewController2?.updateTable()
-                
+                self.ViewController2?.updateTable(image: UIImage(named:"pokeBack")!)
             }catch let error{
                 print(error.localizedDescription)
             }
         }
         print ("getPokemonNames")
+    }
+    
+    func getImage(urlIndex:Int) -> UIImage {
+        if let image = ImageCache.shared.cache.object(forKey: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(urlIndex + 1).png" as NSString){
+            return image
+        } else {
+            return #imageLiteral(resourceName: "pokeBack")
+        }
     }
     
     func getCounter() -> Int {
@@ -56,8 +67,8 @@ class ViewModel2 {
     
     func getUrl(index:Int) -> String {
         guard let array = masterArray else {return "ERROR"}
-        let desc = array.flatMap{$0.url}
-        return desc[index]
+        let url = array.flatMap{$0.url}
+        return url[index]
     }
 }
 

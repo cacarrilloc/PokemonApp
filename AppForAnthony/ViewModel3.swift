@@ -33,7 +33,9 @@ class ViewModel3 {
                 guard let dictionary = json as? [String:Any] else {return}
                 guard let pokeArray = try? PokemonFeatures(dict: dictionary) else {return}
                 self.masterArray = [pokeArray]
-                self.getPokemonImage(indexIn: index)
+                DispatchQueue.main.async {
+                    self.getPokemonImage(indexIn: index)
+                }
             }catch let error{
                 print(error.localizedDescription)
             }
@@ -43,10 +45,8 @@ class ViewModel3 {
     
     func getPokemonImage(indexIn:Int) {
         let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexIn + 1).png"
-        
         if let image = ImageCache.shared.cache.object(forKey: url as NSString){
             self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: image)
-            
         } else {
             NetWorking.getImage(url:url) {
                 [unowned self] (error, data) in
@@ -55,7 +55,6 @@ class ViewModel3 {
                 self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: dataIn)
             }
         }
-        
     }
     
     func getCounter() -> Int {

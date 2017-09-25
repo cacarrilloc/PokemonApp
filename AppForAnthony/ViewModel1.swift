@@ -23,6 +23,22 @@ class ViewModel1 {
         self.ViewController1 = delegate
     }
     
+    func getImage(pokeNumber:Int) {
+        for urlIndex in 1...pokeNumber {
+            let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(urlIndex).png"
+            if let image = ImageCache.shared.cache.object(forKey: imageUrl as NSString){
+                print("image already stored")
+            } else {
+                NetWorking.getImage(url: imageUrl){
+                    [unowned self] (error, data) in
+                    guard error == nil else {return}
+                    guard data != nil else {return}
+                    print("calling new image url")
+                }
+            }
+        }
+    }
+    
     func triggerDisplayInfo () {
         ViewController1?.getPokemonNames(string: "Display Info")
     }
