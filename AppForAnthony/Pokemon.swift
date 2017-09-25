@@ -39,7 +39,6 @@ extension PokemonError:LocalizedError {
 }
 
 class Pokemon {
-    
     let url:String?
     let name:String?
     
