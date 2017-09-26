@@ -38,11 +38,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="How many Pokemons do you want to see??" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGc-t5-jj9" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="61" y="465" width="253" height="67"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-Ih-VIO" customClass="UITextFieldX" customModule="AppForAnthony" customModuleProvider="target">
+                                <rect key="frame" x="138" y="549" width="99" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="O7X-y0-xA3"/>
+                                    <constraint firstAttribute="height" constant="30" id="H7X-SU-tIG"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIW-50-bVz" customClass="UIButtonX" customModule="AppForAnthony" customModuleProvider="target">
+                                <rect key="frame" x="138" y="601" width="99" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aZn-Ru-G0I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" red="0.97652584314346313" green="0.1458204984664917" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="inputButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZtX-k8-yuT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="How many Pokemons do you want to see??" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGc-t5-jj9" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
+                                <rect key="frame" x="51" y="459" width="272" height="71"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="O7X-y0-xA3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,58 +99,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-Ih-VIO" customClass="UITextFieldX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="138" y="549" width="99" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="H7X-SU-tIG"/>
-                                </constraints>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIW-50-bVz" customClass="UIButtonX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="138" y="601" width="99" height="30"/>
-                                <color key="backgroundColor" red="0.96556335687637329" green="0.96073406934738159" blue="0.011437599547207355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="aZn-Ru-G0I"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SEND">
-                                    <color key="titleColor" red="0.97652584314346313" green="0.1458204984664917" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="inputButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZtX-k8-yuT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LGc-t5-jj9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="45" id="7EF-Wx-4Bg"/>
+                            <constraint firstItem="LGc-t5-jj9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="7EF-Wx-4Bg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mjp-Ih-VIO" secondAttribute="trailing" constant="122" id="CNG-OL-dYr"/>
                             <constraint firstItem="IIW-50-bVz" firstAttribute="top" secondItem="mjp-Ih-VIO" secondAttribute="bottom" constant="22" id="MAV-H4-abi"/>
                             <constraint firstItem="IIW-50-bVz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="122" id="Mpv-ss-Lo2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LGc-t5-jj9" secondAttribute="trailing" constant="45" id="Vuh-Ts-3w0"/>
-                            <constraint firstItem="mjp-Ih-VIO" firstAttribute="top" secondItem="LGc-t5-jj9" secondAttribute="bottom" constant="17" id="Z9M-HJ-RaQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LGc-t5-jj9" secondAttribute="trailing" constant="36" id="Vuh-Ts-3w0"/>
+                            <constraint firstItem="mjp-Ih-VIO" firstAttribute="top" secondItem="LGc-t5-jj9" secondAttribute="bottom" constant="19" id="Z9M-HJ-RaQ"/>
                             <constraint firstItem="mjp-Ih-VIO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="122" id="gfQ-mK-CIE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IIW-50-bVz" secondAttribute="trailing" constant="122" id="jcD-BC-1Bj"/>
-                            <constraint firstItem="LGc-t5-jj9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="401" id="w5b-xJ-2aP"/>
+                            <constraint firstItem="LGc-t5-jj9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="395" id="w5b-xJ-2aP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lmk-vs-Hz9"/>
@@ -128,7 +128,7 @@
         <scene sceneID="mCe-0s-uHf">
             <objects>
                 <tableViewController storyboardIdentifier="SecondViewController" id="sbh-cb-iCp" customClass="SecondViewController" customModule="AppForAnthony" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZC6-O0-28N">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZC6-O0-28N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,8 +157,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpG-HU-NcX" customClass="UIImageViewX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="35" y="69" width="304" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jpG-HU-NcX" customClass="UIImageViewX" customModule="AppForAnthony" customModuleProvider="target">
+                                <rect key="frame" x="16" y="69" width="343" height="240"/>
                                 <color key="backgroundColor" red="0.44225862859999998" green="0.4978501353" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="iWs-gm-l5G"/>
@@ -178,13 +178,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqv-wa-1ad" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="68" y="347" width="240" height="26.5"/>
+                                <rect key="frame" x="87" y="346" width="200" height="42"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="pLm-1k-u5R"/>
+                                    <constraint firstAttribute="height" constant="42" id="ZwB-Td-1rb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -199,14 +199,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOm-dt-jWE" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="68" y="402.5" width="240" height="31"/>
+                                <rect key="frame" x="87" y="426" width="200" height="31"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="LZr-23-hgo"/>
-                                    <constraint firstAttribute="height" constant="31" id="k4s-Tf-0NF"/>
+                                    <constraint firstAttribute="height" constant="31" id="ZYm-iX-ycl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -221,14 +220,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-Tm-jOK" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="68" y="447.5" width="240" height="31"/>
+                                <rect key="frame" x="87" y="480" width="200" height="31"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="GIl-ck-yqv"/>
-                                    <constraint firstAttribute="width" constant="240" id="xfr-ZP-uSE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -243,14 +241,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lss-Jx-yfP" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="68" y="492.5" width="240" height="31"/>
+                                <rect key="frame" x="87" y="534" width="200" height="31"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="7cs-lq-cJ5"/>
-                                    <constraint firstAttribute="width" constant="240" id="gIS-yG-wrs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -265,14 +262,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vg-zL-a7i" customClass="UILabelX" customModule="AppForAnthony" customModuleProvider="target">
-                                <rect key="frame" x="68" y="537.5" width="240" height="31"/>
+                                <rect key="frame" x="87" y="589" width="200" height="31"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="elU-lb-1dh"/>
-                                    <constraint firstAttribute="width" constant="240" id="vz4-1k-Ios"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -289,26 +285,28 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jpG-HU-NcX" firstAttribute="leading" secondItem="5Ea-de-llD" secondAttribute="leadingMargin" id="3ud-Yx-tPF"/>
+                            <constraint firstItem="mh6-Tm-jOK" firstAttribute="top" secondItem="dOm-dt-jWE" secondAttribute="bottom" constant="23" id="8rU-0U-nZI"/>
                             <constraint firstItem="mh6-Tm-jOK" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="9me-g8-2gq"/>
-                            <constraint firstItem="Lss-Jx-yfP" firstAttribute="top" secondItem="mh6-Tm-jOK" secondAttribute="bottom" constant="14" id="A7k-Xe-y5P"/>
-                            <constraint firstItem="mh6-Tm-jOK" firstAttribute="top" secondItem="dOm-dt-jWE" secondAttribute="bottom" constant="14" id="AYA-Fx-9S0"/>
+                            <constraint firstItem="Lss-Jx-yfP" firstAttribute="top" secondItem="mh6-Tm-jOK" secondAttribute="bottom" constant="23" id="A7k-Xe-y5P"/>
+                            <constraint firstItem="Lss-Jx-yfP" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="Ah1-xI-tHg"/>
                             <constraint firstItem="Lss-Jx-yfP" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="EqQ-9b-A4W"/>
-                            <constraint firstItem="dOm-dt-jWE" firstAttribute="top" secondItem="vqv-wa-1ad" secondAttribute="bottom" constant="29" id="G52-zI-rFc"/>
                             <constraint firstItem="Lss-Jx-yfP" firstAttribute="leading" secondItem="4Vg-zL-a7i" secondAttribute="leading" id="GE7-dl-82D"/>
-                            <constraint firstItem="Lss-Jx-yfP" firstAttribute="leading" secondItem="vqv-wa-1ad" secondAttribute="leading" id="J1p-cC-saE"/>
-                            <constraint firstItem="jpG-HU-NcX" firstAttribute="trailing" secondItem="5Ea-de-llD" secondAttribute="trailingMargin" id="Kbk-mb-mfm"/>
-                            <constraint firstItem="4Vg-zL-a7i" firstAttribute="top" secondItem="Lss-Jx-yfP" secondAttribute="bottom" constant="14" id="Mx4-Fa-LLY"/>
-                            <constraint firstItem="vqv-wa-1ad" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="Nwe-tR-CxN"/>
+                            <constraint firstItem="dOm-dt-jWE" firstAttribute="top" secondItem="vqv-wa-1ad" secondAttribute="bottom" constant="38" id="JCK-Om-1kJ"/>
+                            <constraint firstItem="4Vg-zL-a7i" firstAttribute="top" secondItem="Lss-Jx-yfP" secondAttribute="bottom" constant="24" id="Mx4-Fa-LLY"/>
+                            <constraint firstItem="dOm-dt-jWE" firstAttribute="trailing" secondItem="mh6-Tm-jOK" secondAttribute="trailing" id="Q2h-kD-1Qp"/>
+                            <constraint firstItem="dOm-dt-jWE" firstAttribute="leading" secondItem="5Ea-de-llD" secondAttribute="leadingMargin" constant="71" id="Wkh-07-ueG"/>
                             <constraint firstItem="jpG-HU-NcX" firstAttribute="top" secondItem="KOF-xc-GTI" secondAttribute="bottom" constant="49" id="c4M-2H-IMq"/>
-                            <constraint firstItem="mh6-Tm-jOK" firstAttribute="leading" secondItem="dOm-dt-jWE" secondAttribute="leading" id="c5c-4Z-PbJ"/>
-                            <constraint firstItem="jpG-HU-NcX" firstAttribute="centerX" secondItem="vqv-wa-1ad" secondAttribute="centerX" id="eRh-nH-1nF"/>
+                            <constraint firstItem="dOm-dt-jWE" firstAttribute="leading" secondItem="mh6-Tm-jOK" secondAttribute="leading" id="cpM-lr-LPy"/>
+                            <constraint firstItem="4Vg-zL-a7i" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="iUf-j8-UoG"/>
+                            <constraint firstItem="jpG-HU-NcX" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="j9l-Bd-nUe"/>
                             <constraint firstItem="4Vg-zL-a7i" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="mde-1h-gHa"/>
-                            <constraint firstItem="vqv-wa-1ad" firstAttribute="top" secondItem="jpG-HU-NcX" secondAttribute="bottom" constant="38" id="oa6-sR-ext"/>
-                            <constraint firstItem="jpG-HU-NcX" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="tYl-Fa-DSG"/>
-                            <constraint firstItem="dOm-dt-jWE" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="v62-IE-z1H"/>
+                            <constraint firstItem="vqv-wa-1ad" firstAttribute="leading" secondItem="Lss-Jx-yfP" secondAttribute="leading" id="oPA-YF-j1T"/>
+                            <constraint firstItem="vqv-wa-1ad" firstAttribute="leading" secondItem="dOm-dt-jWE" secondAttribute="leading" id="qkY-D2-9ci"/>
+                            <constraint firstItem="dOm-dt-jWE" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="wBS-fH-VW7"/>
+                            <constraint firstItem="vqv-wa-1ad" firstAttribute="top" secondItem="jpG-HU-NcX" secondAttribute="bottom" constant="37" id="was-QM-4px"/>
+                            <constraint firstItem="vqv-wa-1ad" firstAttribute="trailing" secondItem="dOm-dt-jWE" secondAttribute="trailing" id="wpu-Zh-6aK"/>
                             <constraint firstItem="jpG-HU-NcX" firstAttribute="leading" secondItem="5Ea-de-llD" secondAttribute="leadingMargin" id="xMF-MA-3x6"/>
-                            <constraint firstItem="jpG-HU-NcX" firstAttribute="centerX" secondItem="dOm-dt-jWE" secondAttribute="centerX" id="yWE-n7-XSJ"/>
+                            <constraint firstItem="mh6-Tm-jOK" firstAttribute="centerX" secondItem="5Ea-de-llD" secondAttribute="centerX" id="xcP-Up-QJk"/>
                             <constraint firstItem="jpG-HU-NcX" firstAttribute="trailing" secondItem="5Ea-de-llD" secondAttribute="trailingMargin" id="zTS-ij-iVt"/>
                         </constraints>
                     </view>

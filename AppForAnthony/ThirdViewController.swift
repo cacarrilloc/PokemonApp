@@ -26,7 +26,6 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
     override func viewDidLoad(){
         super.viewDidLoad()
         setBackgroundImage()
-        myImageView.image = #imageLiteral(resourceName: "Picture1")
         guard let url = passedUrl else {return}
         guard let indexIn = passedIndex else {return}
         self.ThirdViewModel.getPokemonFeatures(inputUrl: url, index: indexIn)
@@ -52,6 +51,15 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
 extension ThirdViewController:VMDelegate3{
     func passPokemonFeatures(array: [PokemonFeatures], image: UIImage){
         DispatchQueue.main.async {
+            
+            // Label cosmetics
+            self.myLabel1.clipsToBounds = true
+            self.myLabel2.clipsToBounds = true
+            self.myLabel3.clipsToBounds = true
+            self.myLabel4.clipsToBounds = true
+            self.myLabel5.clipsToBounds = true
+            
+            // Display values
             self.myImageView.image = image
             self.myLabel1.text = array[0].name
             self.myLabel2.text = array[0].id
