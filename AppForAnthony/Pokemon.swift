@@ -7,8 +7,8 @@
 //
 
 import Foundation
+import Alamofire
 import UIKit
-
 
 enum PokemonError:Error {
     case NoPokemonId

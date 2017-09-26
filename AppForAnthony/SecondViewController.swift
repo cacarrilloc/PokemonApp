@@ -11,9 +11,8 @@ import UIKit
 class SecondViewController: UITableViewController {
     
     var passedIndex:Int?
-    var urlToPass:String?
     var indexToPass:Int?
-    
+    var urlToPass:String?
     var currentImage:UIImage?
     
     lazy var secondViewModel:ViewModel2 = ViewModel2(delegate: self)
