@@ -13,30 +13,17 @@ class SecondViewController: UITableViewController {
     var passedIndex:Int?
     var indexToPass:Int?
     var urlToPass:String?
-    var currentImage:UIImage?
     
+    // Delagate connection variable
     lazy var secondViewModel:ViewModel2 = ViewModel2(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackgroundImage()
         guard let index = passedIndex else {return}
         secondViewModel.getPokemons(inputValue: index)
         let bundle = Bundle(for: CustomTableViewCell.self)
         let nib = UINib(nibName: "CustomeViewCell", bundle: bundle)
         self.tableView.register(nib, forCellReuseIdentifier: "CustomCell")
-    }
-    
-    func setBackgroundImage(){
-        let background = UIImage(named: "pokeBack")
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
     }
     
     // Load the table every single time you get to this tab
@@ -48,6 +35,7 @@ class SecondViewController: UITableViewController {
         return secondViewModel.getCounter()
     }
     
+    // Get Pokemon name and image for each view cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
         let name = secondViewModel.getName(index: indexPath.row)
@@ -58,6 +46,7 @@ class SecondViewController: UITableViewController {
         return cell
     }
     
+    // Select variables to pass
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
         urlToPass = secondViewModel.getUrl(index: indexPath.row)
@@ -65,9 +54,9 @@ class SecondViewController: UITableViewController {
         performSegue(withIdentifier: "mySegue", sender: self)
     }
     
+    // Initialize new view controller and select viewController target
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "mySegue") {
-            // initialize new view controller and select viewxontroller target
             let viewController = segue.destination as! ThirdViewController
             viewController.passedUrl = urlToPass
             viewController.passedIndex = indexToPass
@@ -80,9 +69,8 @@ class SecondViewController: UITableViewController {
 }
 
 extension SecondViewController:VMDelegate2{
-    func updateTable(image: UIImage){
+    func updateTable(){
         DispatchQueue.main.async {
-            self.currentImage = image
             self.tableView.reloadData()
         }
     }

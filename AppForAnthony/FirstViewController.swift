@@ -15,6 +15,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myTextField: UITextField!
     
+    // Delagate connection variable
     lazy var firstViewModel:ViewModel1 = ViewModel1(delegate: self)
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class FirstViewController: UIViewController {
         firstViewModel.triggerDisplayInfo()
     }
     
+    // Download images and pass # of pokemons downloaded
     @IBAction func inputButton(sender: UIButton){
         guard let text = myTextField.text else {return}
         guard let userInput = Int(text) else {return}
@@ -33,6 +35,7 @@ class FirstViewController: UIViewController {
         print("@IBAction")
     }
     
+    // Just background pic (cosmetics)
     func setBackgroundImage(){
         let background = UIImage(named: "pokeBack")
         var imageView : UIImageView!
@@ -50,9 +53,11 @@ class FirstViewController: UIViewController {
     }
 }
 
+// Load all the views.
 extension FirstViewController:VMDelegate1 {
     func getPokemonNames(string: String) {
         DispatchQueue.main.async {
+            // Cosmetic settings for elements
             self.myTextField.delegate = self
             self.myLabel.layer.cornerRadius = 10.0
             self.myLabel.clipsToBounds = true
@@ -64,6 +69,7 @@ extension FirstViewController:VMDelegate1 {
     }
 }
 
+// Input Validation
 extension FirstViewController:UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits

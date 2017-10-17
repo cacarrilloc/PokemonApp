@@ -26,7 +26,7 @@ class ViewModel1 {
     func getImage(pokeNumber:Int) {
         for urlIndex in 1...pokeNumber {
             let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(urlIndex).png"
-            if let image = ImageCache.shared.cache.object(forKey: imageUrl as NSString){
+            if ImageCache.shared.cache.object(forKey: imageUrl as NSString) != nil{
                 print("image already stored")
             } else {
                 NetWorking.getImage(url: imageUrl){

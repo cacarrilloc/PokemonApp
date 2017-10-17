@@ -11,12 +11,13 @@ import UIKit
 import CoreLocation
 
 protocol VMDelegate3:class{
-    func passPokemonFeatures(array: [PokemonFeatures], image: UIImage)
+    func passPokemonFeatures(features:PokemonFeatures, image:UIImage)
 }
 
 class ViewModel3 {
     
-    var masterArray:[PokemonFeatures] = []
+    //var masterArray:[PokemonFeatures] = []
+    var currentPokemon:PokemonFeatures?
     weak var ViewController3:VMDelegate3?
     
     init(delegate:VMDelegate3? = nil){
@@ -32,7 +33,7 @@ class ViewModel3 {
                 let json = try JSONSerialization.jsonObject(with: pokemons)
                 guard let dictionary = json as? [String:Any] else {return}
                 guard let pokeArray = try? PokemonFeatures(dict: dictionary) else {return}
-                self.masterArray = [pokeArray]
+                self.currentPokemon = pokeArray
                 DispatchQueue.main.async {
                     self.getPokemonImage(indexIn: index)
                 }
@@ -46,24 +47,15 @@ class ViewModel3 {
     func getPokemonImage(indexIn:Int) {
         let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexIn + 1).png"
         if let image = ImageCache.shared.cache.object(forKey: url as NSString){
-            self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: image)
+            self.ViewController3?.passPokemonFeatures(features: self.currentPokemon!, image: image)
         } else {
             NetWorking.getImage(url:url) {
                 [unowned self] (error, data) in
                 guard error == nil else {return}
                 guard let dataIn = data else {return}
-                self.ViewController3?.passPokemonFeatures(array: self.masterArray, image: dataIn)
+                self.ViewController3?.passPokemonFeatures(features: self.currentPokemon!, image: dataIn)
             }
         }
-    }
-    
-    func getCounter() -> Int {
-        return masterArray.count
-    }
-    
-    func getName(index:Int) -> String {
-        let name = masterArray.flatMap{$0.name}
-        return name[index]
     }
 }
 

@@ -58,19 +58,19 @@ class Pokemon {
 }
 
 class PokemonFeatures {
-    let id:String
+    let stat:String
     let name:String
     let height:String
     let weight:String
     let base_experience:String
     
     init(dict:[String:Any]) throws {
-        guard let idIn = dict["id"] as? Int else {
-            throw PokemonError.NoPokemonId
-        }
-        let idOut = "id: \(idIn)"
-        self.id = idOut
-        print("POKEMON1: ",idOut)
+//        guard let idIn = dict["id"] as? Int else {
+//            throw PokemonError.NoPokemonId
+//        }
+//        let idOut = "id: \(idIn)"
+//        self.id = idOut
+//        print("POKEMON1: ",idOut)
        
         guard let nameIn = dict["name"] as? String else {
             throw PokemonError.NoPokemonName
@@ -99,11 +99,25 @@ class PokemonFeatures {
         let baseExperienceOut = "Base Experience: \(baseExperience)"
         self.base_experience = baseExperienceOut
         print("POKEMON5: ",baseExperienceOut)
+        
+        
+        
+        
+        guard let statArray = dict["stats"] as? [[String:Any]] else {
+            throw PokemonError.NoPokemonBaseExperience
+        }
+        //let stat = statArray.flatMap{$0["name"] as? [String]}
+        let statName = statArray.flatMap{$0["name"] as? [String]}
+        //let statName = statArray.filter{$0.contains("name")}
+       
+        //let statOut = "Stat: \(statName)"
+        self.stat = "statOut"
+        print("POKEMON_TEST: ",statName)
+        
     }
+    
 }
  
-
-
 
 
 

@@ -18,6 +18,7 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var myLabel5: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
     
+    // Delagate connection variable
     lazy var ThirdViewModel:ViewModel3 = ViewModel3(delegate: self)
     
     var passedUrl:String?
@@ -31,6 +32,7 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
         self.ThirdViewModel.getPokemonFeatures(inputUrl: url, index: indexIn)
     }
     
+    // Just background pic (cosmetics)
     func setBackgroundImage(){
         let background = UIImage(named: "pokeBack")
         var imageView : UIImageView!
@@ -49,9 +51,8 @@ class ThirdViewController: UIViewController, UIActionSheetDelegate {
 }
 
 extension ThirdViewController:VMDelegate3{
-    func passPokemonFeatures(array: [PokemonFeatures], image: UIImage){
+    func passPokemonFeatures(features:PokemonFeatures, image:UIImage) {
         DispatchQueue.main.async {
-            
             // Label cosmetics
             self.myLabel1.clipsToBounds = true
             self.myLabel2.clipsToBounds = true
@@ -61,11 +62,11 @@ extension ThirdViewController:VMDelegate3{
             
             // Display values
             self.myImageView.image = image
-            self.myLabel1.text = array[0].name
-            self.myLabel2.text = array[0].id
-            self.myLabel3.text = array[0].base_experience
-            self.myLabel4.text = array[0].height
-            self.myLabel5.text = array[0].weight
+            self.myLabel1.text = features.name
+            self.myLabel2.text = features.stat
+            self.myLabel3.text = features.base_experience
+            self.myLabel4.text = features.height
+            self.myLabel5.text = features.weight
         }
     }
 }

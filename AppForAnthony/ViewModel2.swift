@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 protocol VMDelegate2:class{
-    func updateTable(image: UIImage)
+    func updateTable()
 }
 
 class ViewModel2 {
@@ -38,7 +38,7 @@ class ViewModel2 {
                 guard let results = dict["results"] as? [[String:Any]] else {return}
                 let pokeArray:[Pokemon] = results.flatMap{ try? Pokemon(dict: $0)}
                 self.masterArray = pokeArray
-                self.ViewController2?.updateTable(image: UIImage(named:"pokeBack")!)
+                self.ViewController2?.updateTable()
             }catch let error{
                 print(error.localizedDescription)
             }
